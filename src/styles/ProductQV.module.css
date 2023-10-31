@@ -1,0 +1,7 @@
+.card{
+    width: 200px;
+    position: relative
+}
+.cardImg{
+    aspect-ratio: 16/9;
+}

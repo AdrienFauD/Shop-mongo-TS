@@ -1,0 +1,31 @@
+.imgTiny{
+    width: 50px;
+    height: 50px;   
+}
+.imgFull{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.title{
+    font-size: 2em;
+    font-weight: bold;
+}
+.pricing{
+    color: rgb(30, 204, 30);
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.discount{
+    border-radius: 6px;
+    width: 20px;
+    padding: 5px;
+    font-size: 1em;
+    color: white;
+    background-color: red;
+
+}
+.description{
+    font-size: 2em;
+}
