@@ -6,7 +6,7 @@ export interface Product {
     discount? : string,
     rating : string,
     description : string,
-    stock : string,
+    stock : number,
     seller : string,
     quantitySold : string,
     category : string,

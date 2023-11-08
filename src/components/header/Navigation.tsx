@@ -1,9 +1,10 @@
 import { Col, Navbar } from "react-bootstrap"
 import NavBarAuth from "../auth/NavBarAuth"
 import { User } from "../../models/user"
-import UserCart from "./Cart"
+import UserCart from "./UserCartIcon"
 import styles from "../../styles/App.module.css"
 import { Link } from "react-router-dom"
+import UserProducts from "../main/UserProducts"
 
 interface NavigationAuthProps {
 	loggedinUser: User | null,
@@ -16,13 +17,18 @@ export default function Navigation({ loggedinUser, onSignInClicked, onLoginClick
 	
 	return (
 		<Navbar expand="sm" className="bg-dark ">
-			<Col sm={10}>
+			<Col sm={9}>
 				<Navbar.Brand className={styles.colorWhite}>
 					<Link to={"/"}>
 						Welcome !!!!
 					</Link>
 				</Navbar.Brand>
 			</Col>
+			{loggedinUser && 
+			<Col>
+				<UserProducts/>
+			</Col>
+			}
 			<Col>
 				<NavBarAuth
 					loggedinUser={loggedinUser}

@@ -36,7 +36,7 @@ export default function EditProductPage({ loggedinUser }: EditProductPageProps) 
                 <>
                     <AddEditProductForm
                         productToEdit={product}
-                        onProductSaved={() => {}}
+                        onProductSaved={() => { }}
                     />
                 </>
             ))}

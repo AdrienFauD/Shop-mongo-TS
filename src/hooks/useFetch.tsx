@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 type Actions = {
-    method : 'GET' | 'POST'
+    method : 'GET' | 'POST' | 'PATCH'
     headers : { 
         "Content-type" : "application/json"
     }

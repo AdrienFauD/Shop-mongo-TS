@@ -1,6 +1,6 @@
+import { Cart } from "../models/cart";
+import { User } from "../models/user";
 import { fetchData } from "./product_api";
-import { User } from "../models/user"
-import { Cart } from "../models/cart"
 
 
 export async function getLoggedInUser(): Promise<User> {
@@ -52,11 +52,23 @@ export type GetUserCartCredentials = {
 }
 
 export async function getUserCart(credentials: string): Promise<Cart> {
-    const response = await fetchData("api/tree/carts/"+credentials, {
+    const response = await fetchData("api/tree/carts/" + credentials, {
         method: "GET",
         headers: {
             "Content-type": "application/json"
         }
+    })
+    return response.json()
+}
+
+
+export async function updateUserCart(credentials: string, product: string, iteration : number): Promise<Cart> {
+    const response = await fetchData("api/tree/carts/" + credentials, {
+        method: "PATCH",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify({"products" : product, "productIteration" : iteration})
     })
     return response.json()
 }

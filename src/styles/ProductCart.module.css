@@ -1,0 +1,13 @@
+.cartImgOffCanvasProduct{
+    width : 50px !important;
+    height : 50px;
+}
+.cartPlaceholderImg{
+}
+.cartPlaceholderInfos{
+    height: 100px;
+}
+.cartPlaceholderColDesc{
+    border-radius: 5px;
+    background-color: rgb(241, 235, 226);
+}

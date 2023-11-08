@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
-import { Col, Row } from "react-bootstrap"
+import { useEffect, useState, useContext } from 'react'
+import { CardGroup, Col, Container, Row } from "react-bootstrap"
 import { Product as ProductModel } from "../../models/product"
 import * as ProductApi from "../../network/product_api"
-import ProductQV from './ProductQV'
+import ProductQV from './products_view/ProductQV'
 import { User } from '../../models/user'
+import { UserContext } from '../../App'
 
 type ProductWindowProps = {
     loggedinUser: User | null
@@ -13,6 +14,7 @@ export default function ProductWindow(loggedinUser: ProductWindowProps) {
     const [products, setProducts] = useState<ProductModel[]>([])
     const [productToEdit, setProductToEdit] = useState<ProductModel | null>(null)
     const [showAddEditProduct, setShowAddEditProduct] = useState<0 | 1>(0)
+
 
     useEffect(() => {
         async function loadProducts() {
@@ -42,20 +44,22 @@ export default function ProductWindow(loggedinUser: ProductWindowProps) {
     }
 
     return (
-        <Row>
-            {products.map(product => (
-                <Col key={product._id}>
-                    <ProductQV
-                        product={product}
-                        loggedinUser={loggedinUser.loggedinUser}
-                        key={product._id}
-                        handleUpdateShowEditProduct={handleUpdateShowEditProduct}
-                        onProductClicked={setProductToEdit}
-                        onDeleteProductClicked={deleteProduct}
-                    />
-                </Col>
-            ))}
-        </Row>
+        <Container>
+            <Row className='g-4'>
+                <CardGroup className='mb-4'>
+                    {products.map(product => (
+                        <ProductQV
+                            product={product}
+                            loggedinUser={loggedinUser.loggedinUser}
+                            key={product._id}
+                            handleUpdateShowEditProduct={handleUpdateShowEditProduct}
+                            onProductClicked={setProductToEdit}
+                            onDeleteProductClicked={deleteProduct}
+                        />
+                    ))}
+                </CardGroup>
+            </Row>
+        </Container>
     )
 }
 

@@ -20,14 +20,13 @@ export default function AddEditProductForm({ productToEdit, onProductSaved }: Ad
       description: productToEdit?.description || "",
       images: productToEdit?.images || [],
       thumbnail: productToEdit?.thumbnail || "",
-      stock: productToEdit?.stock || "",
+      stock: productToEdit?.stock ,
       seller: productToEdit?.seller || "",
       category: productToEdit?.category || "",
     }
   })
 
   async function onSubmit(input: ProductInput) {
-    console.log(input)
     try {
       let productResponse: Product
       if (productToEdit) {

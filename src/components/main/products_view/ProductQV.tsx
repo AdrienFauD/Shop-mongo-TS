@@ -1,10 +1,11 @@
-import styles from "../../styles/ProductQV.module.css"
-import { Product as ProductModel } from "../../models/product"
+import styles from "../../../styles/ProductQV.module.css"
+import { Product as ProductModel } from "../../../models/product"
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 import { MdDelete } from "react-icons/md"
-import { User } from "../../models/user"
+import { User } from "../../../models/user"
 import { Link } from "react-router-dom"
+import { Col } from "react-bootstrap"
 
 interface ProductProps {
     product: ProductModel,
@@ -23,7 +24,6 @@ const ProductQV = ({ product, loggedinUser, onProductClicked, onDeleteProductCli
         description,
         rating,
         seller,
-        images
     } = product
 
 
@@ -35,10 +35,13 @@ const ProductQV = ({ product, loggedinUser, onProductClicked, onDeleteProductCli
                 handleUpdateShowEditProduct()
             }}
         >
-            <Card.Img  src={thumbnail} className={styles.cardImg} />
+            <Card.Header className="m-2">
+                <Link to={name}>
+                <Card.Img src={thumbnail} className={styles.cardImg} />
+            </Link>
+            </Card.Header>
             <Card.Body>
                 <Link to={name}>
-                    <Card.Img src={images && images[0]} className={styles.cardImg} />
                     <Card.Title>
                         {name}
                         {loggedinUser &&

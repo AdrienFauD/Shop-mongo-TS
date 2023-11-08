@@ -1,4 +1,3 @@
-import { get } from "http"
 import { Product } from "../models/product"
 
 export async function fetchData(input: RequestInfo, init: RequestInit) {
@@ -17,7 +16,13 @@ export async function fetchProducts(): Promise<Product[]> {
     const response = await fetchData("api/tree/products", { method: "GET" })
     return response.json()
 }
-export async function fetchSellerProducts(sellerId : string): Promise<Product[]> {
+
+export async function fetchProductsWithId(productId: string): Promise<Product> {
+    const response = await fetchData("api/tree/products/" + productId, { method: "GET" })
+    return response.json()
+}
+
+export async function fetchSellerProducts(sellerId: string): Promise<Product[]> {
     const response = await fetchData("api/tree/products/seller_edit/" + sellerId, { method: "GET" })
     return response.json()
 }
@@ -36,6 +41,7 @@ export async function fetchProductsSearch(searchQuery: string): Promise<Product[
 
 
 export async function fetchProductsTitle(productName: string): Promise<Product> {
+
     const response = await fetchData("api/tree/products/search_title/" + productName, { method: "GET" })
     return response.json()
 }
@@ -47,7 +53,7 @@ export interface ProductInput {
     name: string,
     price: string,
     description: string,
-    stock: string,
+    stock: number,
     seller: string,
     category: string,
     images: string[],
@@ -79,5 +85,6 @@ export async function updateProduct(productId: string, product: ProductInput): P
             },
             body: JSON.stringify(product)
         })
+    console.log(product)
     return response.json()
 }

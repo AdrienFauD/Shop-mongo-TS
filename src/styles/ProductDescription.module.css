@@ -29,3 +29,17 @@
 .description{
     font-size: 2em;
 }
+
+.changeQuantityBox{
+   
+    background-color: rgb(128, 128, 128) !important;
+    border-color: rgb(123, 191, 23) !important;
+    text-align: center;
+    margin: auto;
+}
+
+.changeQuantityBox:hover,
+.changeQuantityBox:focus,
+.changeQuantityBox:active {
+    background-color: rgb(140, 142, 135) !important;
+}

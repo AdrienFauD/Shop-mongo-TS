@@ -1,3 +1,10 @@
 body{
-    background-color: #fafafa;
+    background-color: rgb(237, 226, 226);
+}
+.imgHoverable{
+
+}
+.imgHoverable:hover,.imgHoverable:focus,.imgHoverable:active{
+    transform: scale(1.1);
+    cursor: pointer;
 }

@@ -1,10 +1,11 @@
 .basket {
     width: 50px;
     height: 50px;
-    font-size: 1.5em;
-    color: red;
-    font-size: bold;
-    padding-left: 1em;
+    color: rgb(242, 13, 17) !important;
+    font-size: 1.1em !important;
+    font-weight: bold !important;
+    background-color: black !important;
+    border: none !important;
     background-image: url('../assets/basket.svg');
 }
 
